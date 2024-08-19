@@ -1,0 +1,119 @@
+
+                   J E S 2  J O B  L O G  --  S Y S T E M  2 9 6 4  --  N O D E  S V S C J E S 2        
+
+ 
+22.15.13 JOB04635 ---- THURSDAY,  22 SEP 2022 ----
+22.15.13 JOB04635  IRR010I  USERID KC03C65  IS ASSIGNED TO THIS JOB.
+22.15.13 JOB04635  ICH70001I KC03C65  LAST ACCESS AT 22:13:51 ON THURSDAY, SEPTEMBER 22, 2022
+22.15.13 JOB04635  $HASP373 KC03C65A STARTED - INIT 1    - CLASS A        - SYS 2964
+22.15.13 JOB04635  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+22.15.13 JOB04635  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+22.15.13 JOB04635  -JSTEP01              00     21      2       .00       .00     .0             4  BATCH        0     0     0     0
+22.15.13 JOB04635  -KC03C65A ENDED.  NAME-T. DELA PENA         TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+22.15.13 JOB04635  $HASP395 KC03C65A ENDED - RC=0000
+
+------ JES2 JOB STATISTICS ------
+
+
+  22 SEP 2022 JOB EXECUTION DATE
+
+
+           34 CARDS READ
+
+
+           90 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           10 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03C65A JOB ,'T. DELA PENA',MSGCLASS=H                               JOB04635
+       2 //JSTEP01  EXEC PGM=ASSIST                                                      
+       3 //STEPLIB  DD DSN=KC00NIU.ASSIST.LOADLIB,DISP=SHR                               
+       4 //SYSPRINT DD SYSOUT=*                                                          
+       5 //SYSIN    DD *                                                                 
+       6 //                                                                              
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03C65  LAST ACCESS AT 22:13:51 ON THURSDAY, SEPTEMBER 22, 2022
+IEFA111I KC03C65A IS USING THE FOLLOWING JOB RELATED SETTINGS:
+         SWA=ABOVE,TIOT SIZE=32K,DSENQSHR=DISALLOW,GDGBIAS=JOB
+IEF236I ALLOC. FOR KC03C65A JSTEP01
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IEF142I KC03C65A JSTEP01 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC00NIU.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03C65.KC03C65A.JOB04635.D0000102.?         SYSOUT        
+IEF285I   KC03C65.KC03C65A.JOB04635.D0000101.?         SYSIN         
+IEF373I STEP/JSTEP01 /START 2022265.2215
+IEF032I STEP/JSTEP01 /STOP  2022265.2215 
+        CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   248K  EXT:        0K  SYS:    11256K
+        ATB- REAL:                  1056K  SLOTS:                     0K
+             VIRT- ALLOC:      13M SHRD:       0M
+IEF375I  JOB/KC03C65A/START 2022265.2215
+IEF033I  JOB/KC03C65A/STOP  2022265.2215 
+        CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+                                                                                                                                    
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                      1 *****************************************************************                           
+                                      2 *                                                               *                           
+                                      3 *  CSCI 360-1              ASSIGNMENT 3              FALL 2022  *                           
+                                      4 *                                                               *                           
+                                      5 *  DEVELOPER NAME: Thomas Dela Pena                             *                           
+                                      6 *        DUE DATE: 9/23/2022                                    *                           
+                                      7 *                                                               *                           
+                                      8 *    PROGRAM NAME: ASSIGN3A                                     *                           
+                                      9 *                                                               *                           
+                                     10 *        FUNCTION: SUBTRACT NUM2 FROM NUM1                      *                           
+                                     11 *                                                               *                           
+                                     12 *****************************************************************                           
+                                     13 *                                                                                           
+000000                               14 MAIN     CSECT                                                                              
+000000                               15          USING MAIN,15      ESTABLISH ACCESSIBILITY ON REG 15                               
+000000 5820 F018            00018    16          L     2,NUM1       LOAD NUM1 IN REG 2                                              
+000004 5830 F01C            0001C    17          L     3,NUM2       LOAD NUM2 IN REG 3                                              
+000008 1B23                          18          SR    2,3          SUBRACT CONTENTS OF REG3 FROM 2                                 
+00000A E160 0000 0000 00000          19          XDUMP ,            XDUMP CONTENTS OF ALL REG                                       
+000010 07FE                          20          BCR   B'1111',14   UNCONDITIONAL RETURN TO CALLER (OS)                             
+                                     21 *                                                                                           
+                                     22          LTORG              LITERAL ORGANIZATION                                            
+                                     23 *                                                                                           
+000018 0000000F                      24 NUM1     DC    F'15'        DECLARE FULLWORD OF 15                                          
+00001C 00000007                      25 NUM2     DC    F'7'         DECLARE FULLWORD OF 7                                           
+                                     26 *                                                                                           
+                                     27          END   MAIN                                                                         
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:     752 HIGH:     376 LEAVING:  492440 FREE BYTES. AVERAGE:       40 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.000 SECS,    28000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+BEGIN XSNAP - CALL     1 AT E0000010 USER REGISTERS                                                                                 
+
+ REGS 0-7      F4F4F4F4    F4F4F4F4    00000008    00000007    F4F4F4F4    F4F4F4F4    F4F4F4F4    F4F4F4F4                         
+ REGS 8-15     F4F4F4F4    F4F4F4F4    F4F4F4F4    F4F4F4F4    F4F4F4F4    00000020    FFFE7960    00000000                         
+
+                                                                                                                                    
+
+*** EXECUTION TIME =    0.000 SECS.         5 INSTRUCTIONS EXECUTED -     5000 INSTRUCTIONS/SEC ***                                 
+
+*** FIRST CARD NOT READ: NO CARDS READ:FILE UNOPENED                                                                                
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!
